@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-hippodid"
+version = "0.1.0"
+description = "LangChain integration for HippoDid — persistent character memory for AI agents"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+authors = [{ name = "SameThoughts Inc.", email = "yang@samethoughts.com" }]
+keywords = ["langchain", "memory", "ai-agents", "hippodid", "persistent-memory"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "hippodid>=0.2.0",
+    "langchain-core>=0.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio",
+    "respx>=0.21",
+    "ruff>=0.4",
+]
+
+[project.urls]
+Homepage = "https://hippodid.com"
+Documentation = "https://docs.hippodid.com/guides/langchain"
+Repository = "https://github.com/SameThoughts/langchain-hippodid"
+Issues = "https://github.com/SameThoughts/langchain-hippodid/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_hippodid"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
